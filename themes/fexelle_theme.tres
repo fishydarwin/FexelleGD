@@ -1,0 +1,97 @@
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://cmdlpoteccyr5"]
+
+[ext_resource type="FontFile" uid="uid://busq0jak7jud2" path="res://fonts/CourierNew.ttf" id="1_5hm0g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bftw"]
+content_margin_left = 48.0
+content_margin_top = 48.0
+content_margin_right = 48.0
+content_margin_bottom = 48.0
+bg_color = Color(0.121569, 0.121569, 0.121569, 0)
+corner_radius_bottom_left = 48
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lt24t"]
+content_margin_left = 48.0
+content_margin_top = 48.0
+content_margin_right = 48.0
+content_margin_bottom = 48.0
+bg_color = Color(0.121569, 0.121569, 0.121569, 0)
+corner_radius_bottom_left = 48
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttxq5"]
+content_margin_left = 48.0
+content_margin_top = 48.0
+content_margin_right = 48.0
+content_margin_bottom = 48.0
+bg_color = Color(0.121569, 0.121569, 0.121569, 0)
+corner_radius_bottom_left = 48
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckiui"]
+content_margin_left = 48.0
+content_margin_top = 48.0
+content_margin_right = 48.0
+content_margin_bottom = 48.0
+bg_color = Color(0.121569, 0.121569, 0.121569, 0)
+corner_radius_bottom_left = 48
+
+[sub_resource type="Gradient" id="Gradient_lfn7y"]
+colors = PackedColorArray(0, 0.00799999, 0.06, 1, 0.0284462, 0.155178, 0.234023, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8t3rv"]
+gradient = SubResource("Gradient_lfn7y")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_llkfv"]
+texture = SubResource("GradientTexture2D_8t3rv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jtjyl"]
+texture = SubResource("GradientTexture2D_8t3rv")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfeqb"]
+bg_color = Color(0, 0.14902, 0.309804, 1)
+border_width_left = 16
+border_width_top = 13
+border_width_right = 16
+border_width_bottom = 13
+border_color = Color(0, 0.14902, 0.309804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hxdw"]
+bg_color = Color(0.0784314, 0.196078, 0.368627, 1)
+border_width_left = 16
+border_width_top = 13
+border_width_right = 16
+border_width_bottom = 13
+border_color = Color(0.0784314, 0.196078, 0.368627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku4k2"]
+bg_color = Color(0, 0.14902, 0.309804, 1)
+border_width_left = 16
+border_width_top = 13
+border_width_right = 16
+border_width_bottom = 13
+border_color = Color(0, 0.14902, 0.309804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4a0ra"]
+bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+border_width_left = 16
+border_width_top = 13
+border_width_right = 16
+border_width_bottom = 13
+border_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+
+[resource]
+CodeEdit/font_sizes/font_size = 28
+CodeEdit/fonts/font = ExtResource("1_5hm0g")
+CodeEdit/styles/completion = SubResource("StyleBoxFlat_0bftw")
+CodeEdit/styles/focus = SubResource("StyleBoxFlat_lt24t")
+CodeEdit/styles/normal = SubResource("StyleBoxFlat_ttxq5")
+CodeEdit/styles/read_only = SubResource("StyleBoxFlat_ckiui")
+Panel/styles/panel = SubResource("StyleBoxTexture_llkfv")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_jtjyl")
+TabContainer/constants/outline_size = 0
+TabContainer/constants/side_margin = 48
+TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_cfeqb")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_7hxdw")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_ku4k2")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_4a0ra")

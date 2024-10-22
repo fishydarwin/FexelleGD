@@ -1,0 +1,114 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4c54by7n5pmf"]
+
+[ext_resource type="Script" path="res://scripts/RenderScene.gd" id="1_duqpd"]
+[ext_resource type="Theme" uid="uid://cmdlpoteccyr5" path="res://themes/fexelle_theme.tres" id="2_6fvf0"]
+[ext_resource type="Script" path="res://scripts/UIPanel.gd" id="3_wgnec"]
+[ext_resource type="Script" path="res://scripts/FPSLabel.gd" id="4_fikl2"]
+[ext_resource type="Shader" path="res://shaders/fractal.gdshader" id="5_i3dt3"]
+[ext_resource type="Script" path="res://scripts/Canvas.gd" id="6_klkhw"]
+[ext_resource type="Script" path="res://scripts/CodeEdit.gd" id="7_81gbd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2s0mu"]
+shader = ExtResource("5_i3dt3")
+shader_parameter/ox = -1.0
+shader_parameter/oy = 0.0
+shader_parameter/zoom = 0.5
+shader_parameter/max_depth = 100
+shader_parameter/palette_red = 0.0
+shader_parameter/palette_green = 0.5
+shader_parameter/palette_blue = 1.0
+shader_parameter/bound = 2.0
+shader_parameter/y_ratio = 0.536458
+
+[node name="RenderScene" type="Node2D"]
+script = ExtResource("1_duqpd")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 144.0
+offset_bottom = 108.0
+
+[node name="UIPanel" type="Panel" parent="UI"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("2_6fvf0")
+script = ExtResource("3_wgnec")
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/UIPanel"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Header" type="Panel" parent="UI/UIPanel/PanelContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 48)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UIPanel/PanelContainer/Header"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 1168.0
+offset_bottom = 45.0
+
+[node name="Title" type="Label" parent="UI/UIPanel/PanelContainer/Header/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Fexelle ❦ GD"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="UI/UIPanel/PanelContainer/Header/HBoxContainer"]
+custom_minimum_size = Vector2(15, 2.08165e-12)
+layout_mode = 2
+
+[node name="FPSLabel" type="Label" parent="UI/UIPanel/PanelContainer/Header/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0 FPS"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_fikl2")
+
+[node name="TabContainer" type="TabContainer" parent="UI/UIPanel/PanelContainer"]
+layout_mode = 2
+tab_alignment = 2
+
+[node name="Canvas" type="ColorRect" parent="UI/UIPanel/PanelContainer/TabContainer"]
+material = SubResource("ShaderMaterial_2s0mu")
+layout_mode = 2
+color = Color(0.0509804, 0.0509804, 0.0509804, 1)
+script = ExtResource("6_klkhw")
+
+[node name="Code" type="PanelContainer" parent="UI/UIPanel/PanelContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="CodeEdit" type="CodeEdit" parent="UI/UIPanel/PanelContainer/TabContainer/Code"]
+layout_mode = 2
+text = "// Burning Ship
+
+abs_z = complex: ABS[RE[z]], ABS[IM[z]];
+z = abs_z ^ 2 + c;
+
+// for Julia set:
+// z $= c;
+// c $= 0;
+"
+placeholder_text = "// Begin writing a new FEXL script..."
+wrap_mode = 1
+scroll_smooth = true
+scroll_vertical = 9.0
+minimap_draw = true
+minimap_width = 170
+caret_blink = true
+symbol_lookup_on_click = true
+gutters_draw_line_numbers = true
+indent_use_spaces = true
+script = ExtResource("7_81gbd")
+
+[node name="Settings" type="PanelContainer" parent="UI/UIPanel/PanelContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[connection signal="gui_input" from="UI/UIPanel/PanelContainer/TabContainer/Canvas" to="UI/UIPanel/PanelContainer/TabContainer/Canvas" method="_on_gui_input"]
